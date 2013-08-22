@@ -1,64 +1,26 @@
-<h1>Listing events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Starts on</th>
-      <th>Ends on</th>
-      <th>Host</th>
-      <th>Location</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.starts_on %></td>
-        <td><%= event.ends_on %></td>
-        <td><%= event.host_id %></td>
-        <td><%= event.location %></td>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-
-  </tbody>
-</table>
 <div class="container">
+
+  <h1>Listing events</h1>
+
   <% @events.each do |event| %>
     <div class="row">
-      <div class="col-lg-12">
+    <div class="col-lg-12">
+      <%= link_to event_url(event) do %>
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title"><%= event.title %></h3>
-          </div>
-          <div class="panel-body">
-            Panel content
-          </div>
-          <div class="panel-footer">test  </div>
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= event.title %></h3>
         </div>
+        <div class="panel-body">
+          <%= event.description %>
+          <%= event.location %>
+        </div>
+        <div class="panel-footer"><%= event.starts_on %></div>
       </div>
+    <% end %>
     </div>
-  <% end %>
+  </div>
+<% end %>
+
+  <%= link_to 'New Event', new_event_path %>
+
 </div>
-
-
-
-
-
-
-
-
-
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
