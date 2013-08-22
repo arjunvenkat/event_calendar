@@ -20,8 +20,7 @@
     <%= f.datetime_select :ends_on %>
   </div>
   <div class="field">
-    <%= f.label :host_id %><br>
-    <%= f.text_field :host_id %>
+    <%= f.hidden_field :host_id, value: current_user.id  %><br>
   </div>
   <div class="field">
     <%= f.label :location %><br>
