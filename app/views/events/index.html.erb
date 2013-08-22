@@ -1,6 +1,7 @@
 <div class="container">
 
   <h1>Events</h1>
+  <%= link_to 'Create new event', new_event_path %>
 
   <% @events.each do |event| %>
     <div class="row">
@@ -8,23 +9,23 @@
       <%= link_to event_url(event) do %>
         <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"><%= event.title %></h3>
+          <h2><%= event.title %></h2>
         </div>
         <div class="panel-body">
           <%= event.description %>
           <%= event.location %>
         </div>
         <div class="panel-footer">
-          <%= event.starts_on.strftime("%a") %>
-          <%= event.starts_on.strftime("%b %e") %>
-          <%= event.starts_on.strftime("%Y") %>
+          <ul class="unstyled">
+            <li><%= event.starts_on.strftime("%a") %></li>
+            <li><%= event.starts_on.strftime("%b %e") %></li>
+            <li><%= event.starts_on.strftime("%Y") %></li>
+          </ul>
         </div>
       </div>
     <% end %>
     </div>
   </div>
 <% end %>
-
-  <%= link_to 'New Event', new_event_path %>
 
 </div>
