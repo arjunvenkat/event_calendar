@@ -30,5 +30,16 @@
   <%= @event.description %>
 </p>
 
+
+
+
+<h2>Invite someone:</h2>
+
+<%= form_tag('/invites') do %>
+  <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :email) %>
+  <%= hidden_field_tag :event_id, @event.id %>
+  <%= submit_tag 'invite user' %>
+<% end %>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
