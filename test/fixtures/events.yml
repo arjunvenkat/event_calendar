@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  starts_on: 
+  ends_on: 
+  host_id: 
+  location: 
+  title: 
+  description: MyText
+
+two:
+  starts_on: 
+  ends_on: 
+  host_id: 
+  location: 
+  title: 
+  description: MyText
