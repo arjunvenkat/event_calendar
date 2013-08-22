@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1>Listing events</h1>
+  <h1>Events</h1>
 
   <% @events.each do |event| %>
     <div class="row">
@@ -14,7 +14,11 @@
           <%= event.description %>
           <%= event.location %>
         </div>
-        <div class="panel-footer"><%= event.starts_on %></div>
+        <div class="panel-footer">
+          <%= event.starts_on.strftime("%a") %>
+          <%= event.starts_on.strftime("%b %e") %>
+          <%= event.starts_on.strftime("%Y") %>
+        </div>
       </div>
     <% end %>
     </div>
